@@ -1,0 +1,76 @@
+diff -urN artikulate-4.13.2/cmake/modules/FindQtMobility.cmake artikulate-4.13.2-patched/cmake/modules/FindQtMobility.cmake
+--- artikulate-4.13.2/cmake/modules/FindQtMobility.cmake	2014-06-04 08:00:11.000000000 +1100
++++ artikulate-4.13.2-patched/cmake/modules/FindQtMobility.cmake	2014-06-16 00:36:14.000000000 +1100
+@@ -26,20 +26,7 @@
+ # Redistribution and use is allowed according to the terms of the BSD license.
+ 
+ set(QTMOBILITY_COMPONENTS
+-    Bearer
+-    Connectivity
+-    Contacts
+-    Feedback
+-    Gallery
+-    Location
+-    Messaging
+     MultimediaKit
+-    Organizer
+-    PublishSubscribe
+-    Sensors
+-    ServiceFramework
+-    SystemInfo
+-    Versit
+ )
+ 
+ if (QtMobility_FIND_COMPONENTS)
+@@ -49,7 +36,7 @@
+   endforeach (component)
+ endif (QtMobility_FIND_COMPONENTS)
+ 
+-find_path(QTMOBILITY_INCLUDE_DIR qmobilityglobal.h PATH_SUFFIXES QtMobility)
++find_path(QTMOBILITY_INCLUDE_DIR qmobilityglobal.h HINTS ${QT_INCLUDE_DIR} PATH_SUFFIXES QtMobility)
+ 
+ #Find the mobility version
+ if(QTMOBILITY_INCLUDE_DIR)
+@@ -63,40 +50,8 @@
+ set(QTMOBILITY_VARIABLES "QTMOBILITY_INCLUDE_DIR")
+ set(QTMOBILITY_INCLUDE_DIRS ${QTMOBILITY_INCLUDE_DIR})
+ 
+-#A list of files to find for specific components
+-set(QTMOBILITY_FIND_FILES
+-    QNetworkConfiguration #Bearer
+-    QBluetoothSocket #Connectivity
+-    QContact #Contacts
+-    QFeedbackInterface #Feedback
+-    QAbstractGallery #Gallery
+-    QLandmark #Location
+-    QMessage #Messaging
+-    QMediaPlayer #MultimediaKit
+-    QOrganizerItem #Organizer
+-    QValueSpace #PublishSubscribe
+-    QSensor #Sensors
+-    QService #ServiceFramework
+-    QSystemInfo #SystemInfo
+-    QVersitDocument #Versit
+-)
+-
+-list(LENGTH QTMOBILITY_COMPONENTS _component_count)
+-math(EXPR _component_count "${_component_count} - 1")
+-foreach (index RANGE ${_component_count})
+-    list(GET QTMOBILITY_COMPONENTS ${index} component)
+-    list(GET QTMOBILITY_FIND_FILES ${index} file)
+-    string(TOUPPER ${component} _COMPONENT)
+-
+-    if (NOT QtMobility_FIND_COMPONENTS OR QTMOBILITY_USE_${_COMPONENT})
+-        find_path(QTMOBILITY_${_COMPONENT}_INCLUDE_DIR ${file} PATH_SUFFIXES Qt${component} qt4/Qt${component})
+-        find_library(QTMOBILITY_${_COMPONENT}_LIBRARY NAMES Qt${component})
+-
+-        list(APPEND QTMOBILITY_VARIABLES "QTMOBILITY_${_COMPONENT}_INCLUDE_DIR" "QTMOBILITY_${_COMPONENT}_LIBRARY")
+-        list(APPEND QTMOBILITY_INCLUDE_DIRS ${QTMOBILITY_${_COMPONENT}_INCLUDE_DIR})
+-        list(APPEND QTMOBILITY_LIBRARIES ${QTMOBILITY_${_COMPONENT}_LIBRARY})
+-    endif (NOT QtMobility_FIND_COMPONENTS OR QTMOBILITY_USE_${_COMPONENT})
+-endforeach (index)
++find_path(QTMOBILITY_MULTIMEDIAKIT_INCLUDE_DIR QMediaPlayer HINTS ${QT_INCLUDE_DIR} PATH_SUFFIXES QtMultimediaKit)
++find_library(QTMOBILITY_MULTIMEDIAKIT_LIBRARY NAMES QtMultimediaKit)
+ 
+ include(FindPackageHandleStandardArgs)
+ find_package_handle_standard_args(QtMobility REQUIRED_VARS ${QTMOBILITY_VARIABLES} VERSION_VAR QTMOBILITY_VERSION)
