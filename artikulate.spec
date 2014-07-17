@@ -1,6 +1,6 @@
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	4.13.2
+Version:	4.13.3
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
