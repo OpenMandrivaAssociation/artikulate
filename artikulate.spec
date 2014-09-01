@@ -21,10 +21,26 @@ the pronunciation skills of the user.
 %{_kde_appsdir}/artikulate/
 %{_kde_appsdir}/artikulateui.rc
 %{_kde_applicationsdir}/artikulate.desktop
-%{_kde_docdir}/HTML/en/artikulate/
 %{_kde_configdir}/artikulate.knsrc
 %{_kde_datadir}/config.kcfg//artikulate.kcfg
+%{_kde_docdir}/HTML/en/artikulate/
 %{_kde_iconsdir}/hicolor/*/*/artikulate*.*
+%{_datadir}/appdata/artikulate.appdata.xml
+
+#----------------------------------------------------------------------------
+
+%define core_major 4
+%define libartikulatecore %mklibname artikulatecore %{core_major}
+
+%package -n %{libartikulatecore}
+Summary:	Runtime library for Artikulate
+Group:		System/Libraries
+
+%description -n %{libartikulatecore}
+Runtime library for Artikulate.
+
+%files -n %{libartikulatecore}
+%{_kde_libdir}/libartikulatecore.so.%{core_major}*
 
 #----------------------------------------------------------------------------
 
@@ -43,18 +59,18 @@ Runtime library for Artikulate.
 
 #----------------------------------------------------------------------------
 
-%define core_major 4
-%define libartikulatecore %mklibname artikulatecore %{core_major}
+%define sound_major 4
+%define libartikulatesound %mklibname artikulatesound %{sound_major}
 
-%package -n %{libartikulatecore}
+%package -n %{libartikulatesound}
 Summary:	Runtime library for Artikulate
 Group:		System/Libraries
 
-%description -n %{libartikulatecore}
+%description -n %{libartikulatesound}
 Runtime library for Artikulate.
 
-%files -n %{libartikulatecore}
-%{_kde_libdir}/libartikulatecore.so.%{core_major}*
+%files -n %{libartikulatesound}
+%{_kde_libdir}/libartikulatesound.so.%{sound_major}*
 
 #----------------------------------------------------------------------------
 
@@ -76,6 +92,8 @@ rm %{buildroot}%{_kde_libdir}/libartikulate*.so
 - New version 4.14.0
 - Now requires QtGStreamer-1.0
 - No longer requires QtMultimedia
+- Add new shared library libartikulatesound
+- Update files
 
 * Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.13.3-1
 - New version 4.13.3
