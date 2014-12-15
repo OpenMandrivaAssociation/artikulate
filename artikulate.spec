@@ -1,7 +1,7 @@
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	4.14.3
-Release:	2
+Version:	14.11.97
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
@@ -86,26 +86,3 @@ Runtime library for Artikulate.
 
 # We don't have devel package so drop .so
 rm %{buildroot}%{_kde_libdir}/libartikulate*.so
-
-%changelog
-* Tue Nov 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.3-1
-- New version 4.14.3
-
-* Wed Oct 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.2-1
-- New version 4.14.2
-
-* Mon Sep 29 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.1-1
-- New version 4.14.1
-
-* Tue Sep 02 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.14.0-1
-- New version 4.14.0
-- Now requires QtGStreamer-1.0
-- No longer requires QtMultimedia
-- Add new shared library libartikulatesound
-- Update files
-
-* Tue Jul 15 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.13.3-1
-- New version 4.13.3
-
-* Wed Jun 11 2014 Andrey Bondrov <andrey.bondrov@rosalab.ru> 4.13.2-1
-- Initial import
