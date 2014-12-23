@@ -8,7 +8,7 @@ Url:		http://edu.kde.org
 Source0:	ftp://ftp.kde.org/pub/kde/stable/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	boost-devel
 BuildRequires:	kdelibs4-devel
-BuildRequires:	pkgconfig(QtGStreamer-0.10)
+BuildRequires:	pkgconfig(QtGStreamer-1.0)
 Requires:	kqtquickcharts
 
 %description
