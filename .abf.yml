@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   artikulate-15.08.0.tar.xz: 63db1c040d70624063ef9e6a1d441f5c056eef33
+sources:
+  artikulate-15.08.1.tar.xz: 3208de73738b1e3f840d33c058573111fb029a42
