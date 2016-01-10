@@ -50,8 +50,7 @@ the pronunciation skills of the user.
 
 #----------------------------------------------------------------------------
 
-%define core_major 0
-%define libartikulatecore %mklibname artikulatecore %{core_major}
+%define libartikulatecore %mklibname artikulatecore 
 
 %package -n %{libartikulatecore}
 Summary:	Runtime library for Artikulate
@@ -61,12 +60,12 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatecore}
-%{_kde5_libdir}/libartikulatecore.so.%{core_major}*
+%{_kde5_libdir}/libartikulatecore.so
+%{_kde5_libdir}/libartikulatecore.so.*
 
 #----------------------------------------------------------------------------
 
-%define profile_major 0
-%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile %{profile_major}
+%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile 
 
 %package -n %{libartikulatelearnerprofile}
 Summary:	Runtime library for Artikulate
@@ -76,12 +75,13 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatelearnerprofile}
-%{_kde5_libdir}/libartikulatelearnerprofile.so.%{profile_major}*
+%{_kde5_libdir}/libartikulatelearnerprofile.so
+%{_kde5_libdir}/libartikulatelearnerprofile.so.*
 
 #----------------------------------------------------------------------------
 
 %define sound_major 0
-%define libartikulatesound %mklibname artikulatesound %{sound_major}
+%define libartikulatesound %mklibname artikulatesound 
 
 %package -n %{libartikulatesound}
 Summary:	Runtime library for Artikulate
@@ -91,7 +91,8 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatesound}
-%{_kde5_libdir}/libartikulatesound.so.%{sound_major}*
+%{_kde5_libdir}/libartikulatesound.so
+%{_kde5_libdir}/libartikulatesound.so.*
 
 #----------------------------------------------------------------------------
 
