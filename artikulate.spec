@@ -9,8 +9,16 @@ Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
 Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	boost-devel
-BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(QtGStreamer-1.0)
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(Qt5Sql)
+BuildRequires:	cmake(Qt5Test)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:	cmake(Qt5GStreamer)
+BuildRequires:	cmake(Qt5XmlPatterns)
+
 Requires:	kqtquickcharts
 
 %description
@@ -19,19 +27,24 @@ the pronunciation skills of the user.
 
 %files
 %doc COPYING*
-%{_kde_bindir}/artikulate
-%{_kde_appsdir}/artikulate/
-%{_kde_appsdir}/artikulateui.rc
-%{_kde_applicationsdir}/artikulate.desktop
-%{_kde_configdir}/artikulate.knsrc
-%{_kde_datadir}/config.kcfg//artikulate.kcfg
-%{_kde_docdir}/HTML/en/artikulate/
-%{_kde_iconsdir}/hicolor/*/*/artikulate*.*
-%{_datadir}/appdata/artikulate.appdata.xml
+%{_kde5_bindir}/artikulate_editor
+%{_kde5_bindir}/artikulate
+%{_kde5_applicationsdir}/org.kde.artikulate.desktop
+%{_sysconfdir}/xdg/artikulate.knsrc
+%{_kde5_datadir}/config.kcfg//artikulate.kcfg
+%{_kde5_datadir}/artikulate/images/*.png
+%{_kde5_datadir}/artikulate/languages/*.xml
+%{_kde5_datadir}/artikulate/qml/*.qml
+%{_kde5_datadir}/artikulate/schemes/*.xsd
+%{_kde5_datadir}/artikulate/sounds/*.ogg
+%{_kde5_docdir}/HTML/en/artikulate/
+%{_kde5_iconsdir}/hicolor/*/*/artikulate*.*
+%{_datadir}/appdata/org.kde.artikulate.appdata.xml
+
 
 #----------------------------------------------------------------------------
 
-%define core_major 4
+%define core_major 0
 %define libartikulatecore %mklibname artikulatecore %{core_major}
 
 %package -n %{libartikulatecore}
@@ -46,7 +59,7 @@ Runtime library for Artikulate.
 
 #----------------------------------------------------------------------------
 
-%define profile_major 4
+%define profile_major 0
 %define libartikulatelearnerprofile %mklibname artikulatelearnerprofile %{profile_major}
 
 %package -n %{libartikulatelearnerprofile}
@@ -61,7 +74,7 @@ Runtime library for Artikulate.
 
 #----------------------------------------------------------------------------
 
-%define sound_major 4
+%define sound_major 0
 %define libartikulatesound %mklibname artikulatesound %{sound_major}
 
 %package -n %{libartikulatesound}
@@ -78,13 +91,13 @@ Runtime library for Artikulate.
 
 %prep
 %setup -q
+%cmake_kde5
 
 %build
-%cmake_kde4 -DCMAKE_MINIMUM_REQUIRED_VERSION=2.6
-%make
+%ninja -C build
 
 %install
-%makeinstall_std -C build
+%ninja_install -C build
 
 # We don't have devel package so drop .so
 rm %{buildroot}%{_kde_libdir}/libartikulate*.so
