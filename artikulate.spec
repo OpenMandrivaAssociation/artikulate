@@ -45,7 +45,7 @@ the pronunciation skills of the user.
 %{_kde5_datadir}/artikulate/sounds/*.ogg
 %{_kde5_docdir}/HTML/en/artikulate/
 %{_kde5_iconsdir}/hicolor/*/*/artikulate*.*
-%{_datadir}/appdata/org.kde.artikulate.appdata.xml
+%{_kde5_datadir}/appdata/org.kde.artikulate.appdata.xml
 
 
 #----------------------------------------------------------------------------
@@ -61,7 +61,7 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatecore}
-%{_kde_libdir}/libartikulatecore.so.%{core_major}*
+%{_kde5_libdir}/libartikulatecore.so.%{core_major}*
 
 #----------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatelearnerprofile}
-%{_kde_libdir}/libartikulatelearnerprofile.so.%{profile_major}*
+%{_kde5_libdir}/libartikulatelearnerprofile.so.%{profile_major}*
 
 #----------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatesound}
-%{_kde_libdir}/libartikulatesound.so.%{sound_major}*
+%{_kde5_libdir}/libartikulatesound.so.%{sound_major}*
 
 #----------------------------------------------------------------------------
 
