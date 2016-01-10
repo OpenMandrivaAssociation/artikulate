@@ -18,6 +18,7 @@ BuildRequires:	cmake(KF5Config)
 BuildRequires:	cmake(KF5ConfigWidgets)
 BuildRequires:	cmake(Qt5GStreamer)
 BuildRequires:	cmake(Qt5XmlPatterns)
+BuildRequires:	cmake(Qt5QuickWidgets)
 
 Requires:	kqtquickcharts
 
