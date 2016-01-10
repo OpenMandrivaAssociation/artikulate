@@ -105,5 +105,4 @@ Runtime library for Artikulate.
 %install
 %ninja_install -C build
 
-# We don't have devel package so drop .so
-rm %{buildroot}%{_kde_libdir}/libartikulate*.so
+
