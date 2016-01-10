@@ -21,7 +21,7 @@ BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:  cmake(KF5Declarative)
 BuildRequires:  cmake(KF5Crash)
 BuildRequires:  cmake(KF5DocTools)
-BuildRequires:  cmake(KF4NewStuff)
+BuildRequires:  cmake(KF5NewStuff)
 BuildRequires:	cmake(Qt5XmlPatterns)
 BuildRequires:	cmake(Qt5QuickWidgets)
 
