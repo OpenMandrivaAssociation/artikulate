@@ -26,6 +26,7 @@ BuildRequires:	cmake(Qt5XmlPatterns)
 BuildRequires:	cmake(Qt5QuickWidgets)
 
 Requires:	kqtquickcharts
+Requires:	cmake(ECM)
 
 %description
 Artikulate is a pronunciation trainer that aims at improving and perfecting
