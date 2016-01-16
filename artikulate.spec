@@ -50,7 +50,7 @@ the pronunciation skills of the user.
 
 #----------------------------------------------------------------------------
 %define core_major 0
-%define libartikulatecore %mklibname artikulatecore.*.%{core_major} 
+%define libartikulatecore %mklibname artikulatecore %{core_major}
 
 %package -n %{libartikulatecore}
 Summary:	Runtime library for Artikulate
@@ -60,13 +60,12 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatecore}
-#%{_kde5_libdir}/libartikulatecore.so
-%{_kde5_libdir}/libartikulatecore.so.*
+%{_kde5_libdir}/libartikulatecore.so.%{core_major}*
 
 #----------------------------------------------------------------------------
 
 %define profile_major 0
-%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile *.%{profile_major}
+%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile %{profile_major}
 
 %package -n %{libartikulatelearnerprofile}
 Summary:	Runtime library for Artikulate
@@ -76,13 +75,12 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatelearnerprofile}
-#%{_kde5_libdir}/libartikulatelearnerprofile.so
-%{_kde5_libdir}/libartikulatelearnerprofile.so.*
+%{_kde5_libdir}/libartikulatelearnerprofile.so.%{profile_major}*
 
 #----------------------------------------------------------------------------
 
 %define sound_major 0
-%define libartikulatesound %mklibname artikulatesound.*.%{sound_major}
+%define libartikulatesound %mklibname artikulatesound %{sound_major}
 
 %package -n %{libartikulatesound}
 Summary:	Runtime library for Artikulate
@@ -92,8 +90,7 @@ Group:		System/Libraries
 Runtime library for Artikulate.
 
 %files -n %{libartikulatesound}
-#%{_kde5_libdir}/libartikulatesound.so
-%{_kde5_libdir}/libartikulatesound.so.*
+%{_kde5_libdir}/libartikulatesound.so.%{sound_major}*
 
 #----------------------------------------------------------------------------
 
@@ -103,9 +100,6 @@ Runtime library for Artikulate.
 
 %build
 %ninja -C build
-
-# We don't have devel package so drop .so
-#rm %{buildroot}%{_kde_libdir}/libartikulate*.so
 
 %install
 %ninja_install -C build
