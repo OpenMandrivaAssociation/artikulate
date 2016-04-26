@@ -2,12 +2,12 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	15.12.3
-Release:	2
+Version:	16.04.0
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
-Source0:	ftp://ftp.kde.org/pub/kde/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	boost-devel
 BuildRequires:	pkgconfig(QtGStreamer-1.0)
 BuildRequires:	cmake(ECM)
@@ -40,12 +40,12 @@ the pronunciation skills of the user.
 %{_kde5_datadir}/config.kcfg//artikulate.kcfg
 %{_kde5_datadir}/artikulate/images/*.png
 %{_kde5_datadir}/artikulate/languages/*.xml
-%{_kde5_datadir}/artikulate/qml/*.qml
 %{_kde5_datadir}/artikulate/schemes/*.xsd
 %{_kde5_datadir}/artikulate/sounds/*.ogg
 %{_kde5_docdir}/HTML/en/artikulate/
 %{_kde5_iconsdir}/hicolor/*/*/artikulate*.*
 %{_kde5_datadir}/appdata/org.kde.artikulate.appdata.xml
+%{_libdir}/qt5/plugins/artikulate/libsound/qtgstreamerbackend.so
 
 
 #----------------------------------------------------------------------------
