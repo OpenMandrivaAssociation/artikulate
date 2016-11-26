@@ -43,9 +43,9 @@ the pronunciation skills of the user.
 %{_kde5_datadir}/artikulate/schemes/*.xsd
 %{_kde5_datadir}/artikulate/sounds/*.ogg
 %{_kde5_docdir}/HTML/en/artikulate/
-%{_kde5_iconsdir}/hicolor/*/*/artikulate*.*
+%{_kde5_iconsdir}/hicolor/*/*/*artikulate*.*
 %{_kde5_datadir}/appdata/org.kde.artikulate.appdata.xml
-%{_libdir}/qt5/plugins/artikulate/libsound/qtgstreamerbackend.so
+%{_libdir}/qt5/plugins/artikulate/libsound/*.so
 
 
 #----------------------------------------------------------------------------
