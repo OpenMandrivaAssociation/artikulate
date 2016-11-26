@@ -24,7 +24,7 @@ BuildRequires:  cmake(KF5DocTools)
 BuildRequires:  cmake(KF5NewStuff)
 BuildRequires:	cmake(Qt5XmlPatterns)
 BuildRequires:	cmake(Qt5QuickWidgets)
-
+BuildRequires:	cmake(Qt5Multimedia)
 Requires:	kqtquickcharts
 
 %description
