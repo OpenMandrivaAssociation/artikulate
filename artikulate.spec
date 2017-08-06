@@ -2,7 +2,7 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	17.04.3
+Version:	17.07.90
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -45,15 +45,6 @@ the pronunciation skills of the user.
 %{_kde5_iconsdir}/hicolor/*/*/*artikulate*.*
 %{_datadir}/metainfo/org.kde.artikulate.appdata.xml
 %{_libdir}/qt5/plugins/artikulate/libsound/*.so
-%doc %{_kde5_docdir}/HTML/en/artikulate/
-%doc %lang(ca) %{_kde5_docdir}/HTML/ca/artikulate 
-%doc %lang(de) %{_kde5_docdir}/HTML/de/artikulate 
-%doc %lang(es) %{_kde5_docdir}/HTML/es/artikulate 
-%doc %lang(et) %{_kde5_docdir}/HTML/et/artikulate 
-%doc %lang(nl) %{_kde5_docdir}/HTML/nl/artikulate 
-%doc %lang(pt_BR) %{_kde5_docdir}/HTML/pt_BR/artikulate 
-%doc %lang(sv) %{_kde5_docdir}/HTML/sv/artikulate 
-%doc %lang(uk) %{_kde5_docdir}/HTML/uk/artikulate 
 
 
 #----------------------------------------------------------------------------
@@ -112,7 +103,7 @@ Runtime library for Artikulate.
 %install
 %ninja_install -C build
 
-%find_lang artikulate
+%find_lang %{name} --all-name --with-html
 
 # We don't have devel package so drop .so
 rm %{buildroot}/%{_kde5_libdir}/libartikulate*.so
