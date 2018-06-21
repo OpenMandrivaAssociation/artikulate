@@ -2,29 +2,31 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	 17.12.2
+Version:	 18.04.2
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
 Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	boost-devel
-BuildRequires:	pkgconfig(QtGStreamer-1.0)
 BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Multimedia)
+BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(Qt5Widgets)
 BuildRequires:	cmake(Qt5Sql)
-BuildRequires:	cmake(Qt5Test)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5ConfigWidgets)
-BuildRequires:	cmake(Qt5GStreamer)
-BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:  cmake(KF5Declarative)
-BuildRequires:  cmake(KF5Crash)
-BuildRequires:  cmake(KF5DocTools)
-BuildRequires:  cmake(KF5NewStuff)
 BuildRequires:	cmake(Qt5XmlPatterns)
+BuildRequires:	cmake(Qt5Qml)
+BuildRequires:	cmake(Qt5Quick)
 BuildRequires:	cmake(Qt5QuickWidgets)
-BuildRequires:	cmake(Qt5Multimedia)
+BuildRequires:	cmake(Qt5Test)
+BuildRequires:	cmake(KF5Archive)
+BuildRequires:	cmake(KF5Config)
+BuildRequires:	cmake(KF5Crash)
+BuildRequires:	cmake(KF5I18n)
+BuildRequires:	cmake(KF5NewStuff)
+BuildRequires:	cmake(KF5XmlGui)
+BuildRequires:	cmake(KF5ConfigWidgets)
+BuildRequires:  cmake(KF5Declarative)
 Requires:	kqtquickcharts
 
 %description
