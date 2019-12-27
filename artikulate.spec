@@ -2,12 +2,12 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	19.11.90
+Version:	19.12.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://edu.kde.org
-Source0:	http://download.kde.org/%{stable}/applications/%{version}/src/%{name}-%{version}.tar.xz
+Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildRequires:	boost-devel
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Multimedia)
@@ -105,3 +105,7 @@ Runtime library for Artikulate.
 %ninja_install -C build
 
 %find_lang %{name} --all-name --with-html
+
+# Workaround for gdb freeze
+strip --strip-unneeded %{buildroot}%{_libdir}/lib*.so* \
+	%{buildroot}%{_bindir}/*
