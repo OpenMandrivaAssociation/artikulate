@@ -105,7 +105,3 @@ Runtime library for Artikulate.
 %ninja_install -C build
 
 %find_lang %{name} --all-name --with-html
-
-# Workaround for gdb freeze
-strip --strip-unneeded %{buildroot}%{_libdir}/lib*.so* \
-	%{buildroot}%{_bindir}/*
