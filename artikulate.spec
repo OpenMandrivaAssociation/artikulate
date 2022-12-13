@@ -2,7 +2,7 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	22.08.3
+Version:	22.12.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -43,7 +43,6 @@ the pronunciation skills of the user.
 %{_kde5_datadir}/config.kcfg//artikulate.kcfg
 %{_kde5_iconsdir}/hicolor/*/*/*artikulate*.*
 %{_datadir}/metainfo/org.kde.artikulate.appdata.xml
-%{_libdir}/qt5/plugins/artikulate/libsound/*.so
 
 
 #----------------------------------------------------------------------------
