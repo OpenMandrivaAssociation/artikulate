@@ -2,33 +2,40 @@
 
 Summary:	Pronunciation trainer application for KDE
 Name:		artikulate
-Version:	24.02.0
+Version:	25.08.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://edu.kde.org
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/%{name}-%{version}.tar.xz
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 BuildRequires:	boost-devel
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(Qt5Multimedia)
-BuildRequires:	cmake(KF5DocTools)
-BuildRequires:	cmake(Qt5Widgets)
-BuildRequires:	cmake(Qt5Sql)
-BuildRequires:	cmake(Qt5XmlPatterns)
-BuildRequires:	cmake(Qt5Qml)
-BuildRequires:	cmake(Qt5Quick)
-BuildRequires:	cmake(Qt5QuickWidgets)
-BuildRequires:	cmake(Qt5Test)
-BuildRequires:	cmake(KF5Archive)
-BuildRequires:	cmake(KF5Config)
-BuildRequires:	cmake(KF5Crash)
-BuildRequires:	cmake(KF5I18n)
-BuildRequires:	cmake(KF5NewStuff)
-BuildRequires:	cmake(KF5XmlGui)
-BuildRequires:	cmake(KF5ConfigWidgets)
-BuildRequires:  cmake(KF5Declarative)
-BuildRequires:  cmake(KF5Kirigami2)
-Requires:	kqtquickcharts
+BuildRequires:	cmake(Qt6Multimedia)
+BuildRequires:	cmake(KF6DocTools)
+BuildRequires:	cmake(Qt6Widgets)
+BuildRequires:	cmake(Qt6Sql)
+BuildRequires:	cmake(Qt6Qml)
+BuildRequires:	cmake(Qt6Quick)
+BuildRequires:	cmake(Qt6QuickWidgets)
+BuildRequires:	cmake(Qt6Test)
+BuildRequires:	cmake(KF6Archive)
+BuildRequires:	cmake(KF6Config)
+BuildRequires:	cmake(KF6Crash)
+BuildRequires:	cmake(KF6I18n)
+BuildRequires:	cmake(KF6NewStuff)
+BuildRequires:	cmake(KF6XmlGui)
+BuildRequires:	cmake(KF6ConfigWidgets)
+BuildRequires:  cmake(KF6Declarative)
+BuildRequires:  cmake(KF6Kirigami2)
+# Old libraries that have been removed while porting to Plasma 6
+%define libartikulatecore %mklibname artikulatecore 0
+%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile 0
+%define libartikulatesound %mklibname artikulatesound 0
+Obsoletes:	%{libartikulatecore} < %{EVRD}
+Obsoletes:	%{libartikulatelearnerprofile} < %{EVRD}
+Obsoletes:	%{libartikulatesound} < %{EVRD}
 
 %description
 Artikulate is a pronunciation trainer that aims at improving and perfecting
@@ -36,69 +43,14 @@ the pronunciation skills of the user.
 
 %files -f artikulate.lang
 %doc COPYING*
-%{_kde5_bindir}/artikulate_editor
-%{_kde5_bindir}/artikulate
-%{_kde5_applicationsdir}/org.kde.artikulate.desktop
+%{_bindir}/artikulate_editor
+%{_bindir}/artikulate
+%{_datadir}/applications/org.kde.artikulate.desktop
 %{_datadir}/knsrcfiles/artikulate.knsrc
-%{_kde5_datadir}/config.kcfg//artikulate.kcfg
-%{_kde5_iconsdir}/hicolor/*/*/*artikulate*.*
+%{_datadir}/config.kcfg//artikulate.kcfg
+%{_datadir}/icons/hicolor/*/*/*artikulate*.*
 %{_datadir}/metainfo/org.kde.artikulate.appdata.xml
-
-
-#----------------------------------------------------------------------------
-%define core_major 0
-%define libartikulatecore %mklibname artikulatecore %{core_major}
-
-%package -n %{libartikulatecore}
-Summary:	Runtime library for Artikulate
-Group:		System/Libraries
-
-%description -n %{libartikulatecore}
-Runtime library for Artikulate.
-
-%files -n %{libartikulatecore}
-%{_kde5_libdir}/libartikulatecore.so.%{core_major}*
-
-#----------------------------------------------------------------------------
-
-%define profile_major 0
-%define libartikulatelearnerprofile %mklibname artikulatelearnerprofile %{profile_major}
-
-%package -n %{libartikulatelearnerprofile}
-Summary:	Runtime library for Artikulate
-Group:		System/Libraries
-
-%description -n %{libartikulatelearnerprofile}
-Runtime library for Artikulate.
-
-%files -n %{libartikulatelearnerprofile}
-%{_kde5_libdir}/libartikulatelearnerprofile.so.%{profile_major}*
-
-#----------------------------------------------------------------------------
-
-%define sound_major 0
-%define libartikulatesound %mklibname artikulatesound %{sound_major}
-
-%package -n %{libartikulatesound}
-Summary:	Runtime library for Artikulate
-Group:		System/Libraries
-
-%description -n %{libartikulatesound}
-Runtime library for Artikulate.
-
-%files -n %{libartikulatesound}
-%{_kde5_libdir}/libartikulatesound.so.%{sound_major}*
-
-#----------------------------------------------------------------------------
-
-%prep
-%setup -q
-%cmake_kde5
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-
-%find_lang %{name} --all-name --with-html
+# No point in splitting those into libpackages, nothing uses them
+# and nothing can use them (no headers)
+%{_libdir}/libartikulatecore.so.0
+%{_libdir}/libartikulatelearnerprofile.so.0
