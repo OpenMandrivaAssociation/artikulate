@@ -29,6 +29,7 @@ BuildRequires:	cmake(KF6XmlGui)
 BuildRequires:	cmake(KF6ConfigWidgets)
 BuildRequires:  cmake(KF6Declarative)
 BuildRequires:  cmake(KF6Kirigami2)
+BuildRequires:	pkgconfig(libxml-2.0)
 # Old libraries that have been removed while porting to Plasma 6
 %define libartikulatecore %mklibname artikulatecore 0
 %define libartikulatelearnerprofile %mklibname artikulatelearnerprofile 0
